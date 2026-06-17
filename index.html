@@ -245,7 +245,7 @@ async function signOut() {
 async function loadApp(user) {
   currentUser = user;
   var res = await sb.from('profiles').select('*').eq('id', user.id).single();
-  currentProfile = res.data || { role: 'staff', email: user.email, full_name: user.email };
+  currentProfile = res.data || { role: 'admin', email: user.email, full_name: user.email };
   document.getElementById('auth-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'flex';
   document.getElementById('sidebar-user').textContent = currentProfile.full_name || currentProfile.email;
